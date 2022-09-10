@@ -24,7 +24,7 @@ export default function* watchStatsRequest() {
     while (true) {
         // we get the action here
         const { images } = yield take(IMAGES.LOAD_SUCCESS);
-
+        console.log('IMAGE_LOAD in STATS SAGA');
         for (let i = 0; i < images.length; i++) {
             yield fork(handleStatsRequest, images[i].id);
         }

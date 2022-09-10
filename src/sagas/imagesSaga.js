@@ -8,15 +8,16 @@ export const getPage = state => state.nextPage;
 
 export function* handleImagesLoad() {
     try {
-        const page = yield select(getPage);
-        const images = yield call(fetchImages, page);
+        console.log('IMAGE_LOAD in SAGA');
+        const page = yield select(getPage); //get data from state
+        const images = yield call(fetchImages, page); //call aysnc API
         console.log("Fetch Image: ", images,page)
-        yield put(setImages(images));
+        yield put(setImages(images)); // trigger action that will be handled in reducer
     } catch (error) {
         yield put(setError(error.toString()));
     }
 }
 
 export default function* watchImagesLoad() {
-    yield takeEvery(IMAGES.LOAD, handleImagesLoad);
+    yield takeEvery(IMAGES.LOAD, handleImagesLoad);   //watch actions, and trigger saga
 }
