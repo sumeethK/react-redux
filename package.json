@@ -10,7 +10,6 @@
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0"
   },
-  "homepage": "https://wtjs.github.io/what-the-splash",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
